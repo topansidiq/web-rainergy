@@ -6,9 +6,6 @@
   "scripts": {
     "vercel-build": "prisma generate"
   },
-  "devDependencies": {
-    "vite": "^7.1.2"
-  },
   "dependencies": {
     "@prisma/client": "^6.15.0",
     "body-parser": "^2.2.0",
