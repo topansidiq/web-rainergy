@@ -78,8 +78,3 @@ app.put("/panels/:id", async (req, res) => {
     });
     res.json(panel);
 });
-
-// Jalankan server
-app.listen(4000, () => {
-    console.log("🚀 Server running at http://localhost:4000");
-});
