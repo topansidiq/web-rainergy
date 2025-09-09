@@ -1,6 +1,7 @@
+// api/index.js
 import express from "express";
 import bodyParser from "body-parser";
-import { PrismaClient } from "./generated/prisma/index.js";
+import { PrismaClient } from "@prisma/client";
 import dotenv from "dotenv";
 
 dotenv.config();
@@ -79,4 +80,5 @@ app.put("/panels/:id", async (req, res) => {
     res.json(panel);
 });
 
+// === IMPORTANT: Export handler for Vercel ===
 export default app;
