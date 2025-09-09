@@ -78,3 +78,5 @@ app.put("/panels/:id", async (req, res) => {
     });
     res.json(panel);
 });
+
+export default app;
