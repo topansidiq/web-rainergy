@@ -1,0 +1,38 @@
+generator client {
+  provider = "prisma-client-js"
+  output   = "../generated/prisma"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id    Int    @id @default(autoincrement())
+  name  String @default("user")
+  units Unit[] @relation("UserUnits")
+}
+
+model Unit {
+  id      Int     @id @default(autoincrement())
+  current Float   @default(0.0)
+  dust    Float   @default(0.0)
+  power   Float   @default(0.0)
+  voltage Float   @default(0.0)
+  panels  Panel[]
+  users   User[]  @relation("UserUnits")
+}
+
+model Panel {
+  id           Int     @id @default(autoincrement())
+  unitId       Int
+  current      Float   @default(0.0)
+  dust         Float   @default(0.0)
+  panel_id     String
+  power        Float   @default(0.0)
+  pump_status  Boolean @default(false)
+  voltage      Float   @default(0.0)
+  wiper_status Boolean @default(false)
+  unit         Unit    @relation(fields: [unitId], references: [id])
+}
